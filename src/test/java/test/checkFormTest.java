@@ -3,6 +3,7 @@ package test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.registrationForm;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -24,8 +25,11 @@ public class checkFormTest {
         $(".main-header").shouldHave(text("Practice Form"));
 
         //input data
-        $("#firstName").setValue("Lena");
-        $("#lastName").setValue("Masloboishchikova");
+        new registrationForm().setFirstName("Lena");
+        new registrationForm().setLastName("Masloboishchikova");
+
+
+
         $("#userEmail").setValue("lMaslo@mail.ru");
         //разобраться с selectRadio("Female")
         $(byText("Female")).click();
@@ -47,7 +51,10 @@ public class checkFormTest {
 
         //check data
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(
+        new registrationForm().setFirstName("Lena Masloboishchikova");
+
+
+      /*  $(".table-responsive").shouldHave(
                 text("Lena Masloboishchikova"),
                 text("lMaslo@mail.ru"),
                 text("Female"),
@@ -58,6 +65,6 @@ public class checkFormTest {
                 text("1.jpg"),
                 text("Address 1 2 3 4 5"),
                 text("NCR Delhi")
-        );
+        );*/
     }
 }
