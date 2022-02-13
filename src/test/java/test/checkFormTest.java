@@ -11,6 +11,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class checkFormTest {
+    registrationForm registrationForm = new registrationForm();
+    String firstName="Lena";
+    String lastName="Masloboishchikova";
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -25,8 +29,8 @@ public class checkFormTest {
         $(".main-header").shouldHave(text("Practice Form"));
 
         //input data
-        new registrationForm().setFirstName("Lena");
-        new registrationForm().setLastName("Masloboishchikova");
+        registrationForm.setFirstName(firstName);
+        registrationForm.setLastName(lastName);
 
 
 
@@ -34,10 +38,13 @@ public class checkFormTest {
         //разобраться с selectRadio("Female")
         $(byText("Female")).click();
         $("#userNumber").setValue("8999932145");
-        $("#dateOfBirthInput").click();
+
+        registrationForm.setBirthDate("1993", "8","10");
+        /*$("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOptionByValue("1993");
         $(".react-datepicker__month-select").selectOptionByValue("8");
-        $(byText("10")).click();
+        $(byText("10")).click();*/
+
         $("#subjectsInput").setValue("English").pressEnter();
         $(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("1.jpg");
@@ -51,11 +58,10 @@ public class checkFormTest {
 
         //check data
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
-        new registrationForm().setFirstName("Lena Masloboishchikova");
+        registrationForm.setFirstName(firstName + " " + lastName);
 
 
       /*  $(".table-responsive").shouldHave(
-                text("Lena Masloboishchikova"),
                 text("lMaslo@mail.ru"),
                 text("Female"),
                 text("8999932145"),
