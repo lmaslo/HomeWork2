@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class CheckFormTest {
+public class CheckFormTest extends TestBase {
     RegistrationForm registrationForm = new RegistrationForm();
     String firstName = "Lena";
     String lastName = "Masloboishchikova";
@@ -31,12 +31,7 @@ public class CheckFormTest {
     String city = "Delhi";
 
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
 
-    }
 
     @Test
     void successFillTest() {
