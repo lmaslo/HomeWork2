@@ -17,7 +17,7 @@ public class RegistrationForm {
     private SelenideElement lastNameInput = $("#lastName");
     private SelenideElement mainHeader = $(".main-header");
     private SelenideElement userEmail = $("#userEmail");
-    private SelenideElement gender = $(byText("Female"));
+    private SelenideElement gender = $("#gender-radio-2");
     private SelenideElement userNumber = $("#userNumber");
     private SelenideElement dateOfBirth = $("#dateOfBirthInput");
     private SelenideElement subjectsInput = $("#subjectsInput");
@@ -54,7 +54,7 @@ public class RegistrationForm {
     }
 
     public RegistrationForm setGender() {
-        gender.click();
+        gender.parent().click();
         return this;
     }
 
