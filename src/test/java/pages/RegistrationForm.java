@@ -21,6 +21,7 @@ public class RegistrationForm {
     private SelenideElement userNumber = $("#userNumber");
     private SelenideElement dateOfBirth = $("#dateOfBirthInput");
     private SelenideElement subjectsInput = $("#subjectsInput");
+    private SelenideElement hobbiesInput = $("#hobbies-checkbox-1");
     private SelenideElement uploadPicture = $("#uploadPicture");
     private SelenideElement currentAddress = $("#currentAddress");
     private SelenideElement stateInput = $("#state");
@@ -75,7 +76,8 @@ public class RegistrationForm {
     }
 
     public RegistrationForm setHobbies(String hobbies) {
-        $(byText(hobbies)).click();
+        hobbiesInput.parent().click();
+        //$(byText(hobbies)).click();
         return this;
     }
 
