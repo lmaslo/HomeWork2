@@ -1,7 +1,10 @@
 package test;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -9,13 +12,13 @@ import static test.TestData.*;
 
 
 public class CheckFormTest extends TestBase {
-    RegistrationForm registrationForm = new RegistrationForm();
-    //String firstName = "Lena";
-    String lastName = "Masloboishchikova";
-    //String email = "lMaslo@mail.ru";
-    String gender = "Female";
-    //String number = "8999932145";
+   // Faker faker = new Faker();
+   Faker faker = new Faker(new Locale("ru"));
+    String lastName = faker.name().lastName();
 
+    RegistrationForm registrationForm = new RegistrationForm();
+
+    String gender = "Female";
     String year = "1993";
     String month = "8";
     String mouthText = "September";
