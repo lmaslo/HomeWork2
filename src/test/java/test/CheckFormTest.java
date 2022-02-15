@@ -12,9 +12,9 @@ import static test.TestData.*;
 
 
 public class CheckFormTest extends TestBase {
-   // Faker faker = new Faker();
-   Faker faker = new Faker(new Locale("ru"));
-    String lastName = faker.name().lastName();
+    // Faker faker = new Faker();
+    //Faker faker = new Faker(new Locale("ru"));
+
 
     RegistrationForm registrationForm = new RegistrationForm();
 
@@ -30,8 +30,6 @@ public class CheckFormTest extends TestBase {
     String address = "Address 1 2 3 4 5";
     String state = "NCR";
     String city = "Delhi";
-
-
 
 
     @Test
