@@ -10,7 +10,7 @@ import static test.TestData.*;
 
 public class CheckFormTest extends TestBase {
     RegistrationForm registrationForm = new RegistrationForm();
-    String firstName = "Lena";
+    //String firstName = "Lena";
     String lastName = "Masloboishchikova";
     //String email = "lMaslo@mail.ru";
     String gender = "Female";
