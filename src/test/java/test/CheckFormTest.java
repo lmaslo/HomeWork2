@@ -1,22 +1,20 @@
 package test;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static test.TestData.*;
+
 
 public class CheckFormTest extends TestBase {
     RegistrationForm registrationForm = new RegistrationForm();
     String firstName = "Lena";
     String lastName = "Masloboishchikova";
-    String email = "lMaslo@mail.ru";
+    //String email = "lMaslo@mail.ru";
     String gender = "Female";
-    String number = "8999932145";
+    //String number = "8999932145";
 
     String year = "1993";
     String month = "8";
