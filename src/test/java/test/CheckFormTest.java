@@ -58,7 +58,7 @@ public class CheckFormTest extends TestBase {
                 .checkTable(day + " " + mouthText + "," + year)
                 .checkTable(subject)
                 .checkTable(hobbies)
-                .checkTable(fileName)
+                //.checkTable(fileName)
                 .checkTable(address)
                 .checkTable(state + " " + city);
 
