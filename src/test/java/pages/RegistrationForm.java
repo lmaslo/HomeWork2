@@ -71,24 +71,32 @@ public class RegistrationForm {
     }
 
     public RegistrationForm setNumber(String number) {
-        userNumber.setValue(number);
+        step("Заполняем номер телефона", () -> {
+            userNumber.setValue(number);
+        });
         return this;
     }
 
     public RegistrationForm setBirthDate(String year, String month, String day) {
-        dateOfBirth.click();
-        calendarComponent.setDate(year, month, day);
+        step("Заполняем дату рождения", () -> {
+            dateOfBirth.click();
+            calendarComponent.setDate(year, month, day);
+        });
         return this;
     }
 
     public RegistrationForm setSubject(String subject) {
-        subjectsInput.setValue(subject).pressEnter();
+        step("Заполняем тему", () -> {
+            subjectsInput.setValue(subject).pressEnter();
+        });
         return this;
     }
 
     public RegistrationForm setHobbies(String hobbies) {
-        hobbiesInput.parent().click();
-        //$(byText(hobbies)).click();
+        step("Выбираем хобби", () -> {
+            hobbiesInput.parent().click();
+            //$(byText(hobbies)).click();
+        });
         return this;
     }
 
@@ -98,29 +106,39 @@ public class RegistrationForm {
     }
 
     public RegistrationForm setAddress(String address) {
-        currentAddress.setValue(address);
+        step("Заполняем адрес", () -> {
+            currentAddress.setValue(address);
+        });
         return this;
     }
 
     public RegistrationForm setState(String state) {
-        stateInput.click();
-        $(byText(state)).click();
+        step("Выбираем штат", () -> {
+            stateInput.click();
+            $(byText(state)).click();
+        });
         return this;
     }
 
     public RegistrationForm setCity(String city) {
-        cityInput.click();
-        $(byText(city)).click();
+        step("Выбираем город", () -> {
+            cityInput.click();
+            $(byText(city)).click();
+        });
         return this;
     }
 
     public RegistrationForm setSubmit() {
-        buttonSubmit.click();
+        step("Нажимаем на кнопку Submit", () -> {
+            buttonSubmit.click();
+        });
         return this;
     }
 
     public RegistrationForm checkTable(String value) {
-        resultsTable.shouldHave(text(value));
+        step("Проверяем введенные данные по таблице", () -> {
+            resultsTable.shouldHave(text(value));
+        });
         return this;
     }
 }
