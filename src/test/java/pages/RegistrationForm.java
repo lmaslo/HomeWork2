@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationForm {
     //components
@@ -34,8 +35,11 @@ public class RegistrationForm {
 
     //actions
     public RegistrationForm openPage() {
-        open("/automation-practice-form");
-        mainHeader.shouldHave(text("Practice Form"));
+
+        step("открываем главную страницу", () -> {
+            open("/automation-practice-form");
+            mainHeader.shouldHave(text("Practice Form"));
+        });
         return this;
     }
 
