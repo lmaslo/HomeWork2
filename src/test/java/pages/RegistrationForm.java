@@ -136,7 +136,7 @@ public class RegistrationForm {
     }
 
     public RegistrationForm checkTable(String value) {
-        step("Проверяем введенные данные по таблице", () -> {
+        step("Проверяем данные  " + value + " по таблице", () -> {
             resultsTable.shouldHave(text(value));
         });
         return this;

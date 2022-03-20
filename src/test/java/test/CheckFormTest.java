@@ -1,5 +1,7 @@
 package test;
 
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
 
@@ -7,9 +9,11 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static io.qameta.allure.Allure.step;
 import static test.TestData.*;
 
-
+@Owner("lmaslo")
+@DisplayName("Проверка заполнения формы Practice Form на сайте https://demoqa.com/")
 public class CheckFormTest extends TestBase {
     // Faker faker = new Faker();
     //Faker faker = new Faker(new Locale("ru"));
@@ -32,6 +36,7 @@ public class CheckFormTest extends TestBase {
 
 
     @Test
+    @DisplayName("Проверка формы Practice Form ")
     void successFillTest() {
         registrationForm.openPage()
                 .setFirstName(firstName)
@@ -50,7 +55,11 @@ public class CheckFormTest extends TestBase {
 
 
         //check data
-        $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        step("Проверка заголовка итоговой таблицы", () -> {
+            $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        });
+
+
         registrationForm.checkTable(firstName + " " + lastName)
                 .checkTable(email)
                 .checkTable(gender)
