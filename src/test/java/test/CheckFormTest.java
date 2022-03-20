@@ -1,6 +1,5 @@
 package test;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
 
