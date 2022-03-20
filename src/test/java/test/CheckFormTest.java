@@ -42,7 +42,7 @@ public class CheckFormTest extends TestBase {
                 .setBirthDate(year, month, day)
                 .setSubject(subject)
                 .setHobbies(hobbies)
-                .setUploadFile(fileName)
+                //.setUploadFile(fileName)
                 .setAddress(address)
                 .setState(state)
                 .setCity(city)
