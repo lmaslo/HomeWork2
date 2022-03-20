@@ -35,7 +35,6 @@ public class RegistrationForm {
 
     //actions
     public RegistrationForm openPage() {
-
         step("открываем главную страницу", () -> {
             open("/automation-practice-form");
             mainHeader.shouldHave(text("Practice Form"));
@@ -44,22 +43,30 @@ public class RegistrationForm {
     }
 
     public RegistrationForm setFirstName(String firstName) {
-        firstNameInput.setValue(firstName);
+        step("Вводим имя", () -> {
+            firstNameInput.setValue(firstName);
+        });
         return this;
     }
 
     public RegistrationForm setLastName(String lastName) {
-        lastNameInput.setValue(lastName);
+        step("Вводим фамилию", () -> {
+            lastNameInput.setValue(lastName);
+        });
         return this;
     }
 
     public RegistrationForm setEmail(String email) {
-        userEmail.setValue(email);
+        step("Заполняем email", () -> {
+            userEmail.setValue(email);
+        });
         return this;
     }
 
     public RegistrationForm setGender() {
-        gender.parent().click();
+        step("Выбираем пол", () -> {
+            gender.parent().click();
+        });
         return this;
     }
 
