@@ -16,7 +16,6 @@ public class TestBase {
     static String remoteBrowserUser = System.getProperty("remoteBrowserUser", "user1");
     static String remoteBrowserPassword = System.getProperty("remoteBrowserPassword", "1234");
 
-
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
