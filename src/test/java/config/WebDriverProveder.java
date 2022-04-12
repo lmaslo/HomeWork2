@@ -10,9 +10,9 @@ import java.util.function.Supplier;
 
 
 
-public class WebDriverProveder  {
+public class WebDriverProveder implements Supplier<WebDriver>  {
 
-    /*private final WebDriverConfig config;
+    private final WebDriverConfig config;
     public WebDriverProveder() {
         this.config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }
@@ -20,10 +20,11 @@ public class WebDriverProveder  {
     @Override
     public WebDriver get() {
         WebDriver driver = createWebDriver();
+        driver.get(config.getBaseUrl());
         return driver;
-    }*/
+    }
 
-    /*private WebDriver createWebDriver(){
+    private WebDriver createWebDriver(){
         if (Objects.nonNull(config.getBrowser())){
             switch (config.getBrowser()){
                 case CHROME: {
@@ -38,6 +39,7 @@ public class WebDriverProveder  {
             }
         }
         throw new RuntimeException("Тип браузера не может быть null");
-    }*/
+    }
+
 
 }
