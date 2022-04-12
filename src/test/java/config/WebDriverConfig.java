@@ -6,9 +6,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources("classpath:${runTest}.properties")
 public interface WebDriverConfig extends Config {
 
-    /*@Key("baseUrl")
+    @Key("baseUrl")
     @DefaultValue("https://demoqa.com")
-    String getBaseUrl();*/
+    String getBaseUrl();
 
     @Key("browserSize")
     String browserSize();

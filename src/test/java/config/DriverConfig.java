@@ -10,30 +10,41 @@ public class DriverConfig {
     public static void configure() {
 
         Properties properties = System.getProperties();
-        String runTest = properties.getProperty("runTest");
+        //String runTest = properties.getProperty("runTest");
 
         Configuration.browser = Project.webConfig.browserName();
-        Configuration.browserVersion = Project.webConfig.browserVersion();
+        //Configuration.browserVersion = Project.webConfig.browserVersion();
         // Configuration.baseUrl = Project.webConfig.getBaseUrl();
         Configuration.browserSize = Project.webConfig.browserSize();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+       /* DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
 
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-infobars");
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--lang=en-en");
+        chromeOptions.addArguments("--lang=en-en");*/
+
 
         Configuration.remote="https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        if (Project.isRemoteWebDriver()) {
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
+
+
+
+
+
+       /* if (Project.isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.remote = Project.webConfig.remoteUrl();
         }
 
-        Configuration.browserCapabilities = capabilities;
+        Configuration.browserCapabilities = capabilities;*/
 
 
     }
