@@ -33,27 +33,3 @@ public class TestBase {
 
 
 
-  /*  static String remoteBrowser = System.getProperty("remoteBrowser", "selenoid.autotests.cloud/wd/hub");
-    static String remoteBrowserUser = System.getProperty("remoteBrowserUser", "user1");
-    static String remoteBrowserPassword = System.getProperty("remoteBrowserPassword", "1234");*/
-
-
-    //@BeforeAll
-   // static void setUp1() {
-
-
-        //String remoteRun = System.getProperty("remoteRun", "remote");
-       /* SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
-
-    }*/
-
-
-

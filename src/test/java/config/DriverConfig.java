@@ -12,7 +12,7 @@ public class DriverConfig {
     public static void configure() {
 
         Properties properties = System.getProperties();
-        String runTest = properties.getProperty("runTest","local");
+        String runTest = properties.getProperty("runTest");
 
         Configuration.browser = Project.webConfig.browserName();
         Configuration.browserVersion = Project.webConfig.browserVersion();
@@ -21,7 +21,7 @@ public class DriverConfig {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-      /*  DesiredCapabilities capabilities = new DesiredCapabilities();
+      /*
         ChromeOptions chromeOptions = new ChromeOptions();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         OperaOptions operaOptions = new OperaOptions();
