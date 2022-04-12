@@ -2,8 +2,6 @@ package config;
 
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Properties;
@@ -16,7 +14,7 @@ public class DriverConfig {
 
         Configuration.browser = Project.webConfig.browserName();
         Configuration.browserVersion = Project.webConfig.browserVersion();
-        Configuration.baseUrl = Project.webConfig.getBaseUrl();
+       // Configuration.baseUrl = Project.webConfig.getBaseUrl();
         Configuration.browserSize = Project.webConfig.browserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -29,11 +27,10 @@ public class DriverConfig {
         chromeOptions.addArguments("--lang=en-en");
 
 
-        if (runTest=="remote") {
+        if (Project.isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-            //Configuration.remote = Project.webConfig.remoteUrl();
+            Configuration.remote = Project.webConfig.remoteUrl();
         }
 
         Configuration.browserCapabilities = capabilities;

@@ -36,7 +36,7 @@ public class RegistrationForm {
     //actions
     public RegistrationForm openPage() {
         step("открываем главную страницу", () -> {
-            open("/automation-practice-form");
+            open("https://demoqa.com/automation-practice-form");
             mainHeader.shouldHave(text("Practice Form"));
         });
         return this;
