@@ -18,17 +18,25 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://" + remoteBrowserUser + ":" + remoteBrowserPassword + "@" + remoteBrowser;
+
+        String remoteRun = System.getProperty("remoteRun", "remote");
+        if (remoteRun=="remote") {
+            SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+            Configuration.baseUrl = "https://demoqa.com";
+            Configuration.browserSize = "1920x1080";
+            Configuration.remote = "https://" + remoteBrowserUser + ":" + remoteBrowserPassword + "@" + remoteBrowser;
 
 
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
+        }
+        else
+        {
+            System.out.println("local");
+        }
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
     }
 
 
