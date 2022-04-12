@@ -48,7 +48,7 @@ public class DriverConfig {
                 break;
         }*/
 
-        if (Project.isRemoteWebDriver()) {
+        if (runTest=="remote") {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.remote = Project.webConfig.remoteUrl();
