@@ -21,6 +21,14 @@ public class DriverConfig {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
+        ChromeOptions chromeOptions = new ChromeOptions();
+
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-infobars");
+        chromeOptions.addArguments("--disable-popup-blocking");
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--lang=en-en");
+
       /*
         ChromeOptions chromeOptions = new ChromeOptions();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
