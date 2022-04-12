@@ -6,7 +6,7 @@ public class Project {
     public static WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
     public static boolean isRemoteWebDriver() {
-        return !webConfig.remoteUrl().equals("");
+        return webConfig.remoteUrl().equals("");
     }
 
     public static String browserName() {

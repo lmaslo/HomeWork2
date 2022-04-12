@@ -20,7 +20,6 @@ public class DriverConfig {
         Configuration.browserSize = Project.webConfig.browserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
         ChromeOptions chromeOptions = new ChromeOptions();
 
         chromeOptions.addArguments("--no-sandbox");
@@ -29,38 +28,14 @@ public class DriverConfig {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--lang=en-en");
 
-      /*
-        ChromeOptions chromeOptions = new ChromeOptions();
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
-        OperaOptions operaOptions = new OperaOptions();
-
-        switch (Configuration.browser) {
-            case "chrome":
-                chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-infobars");
-                chromeOptions.addArguments("--disable-popup-blocking");
-                chromeOptions.addArguments("--disable-notifications");
-                chromeOptions.addArguments("--lang=en-en");
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-                break;
-            case "firefox":
-                firefoxOptions.addArguments("--fast-start");
-                firefoxOptions.addArguments("--enable-logging");
-                firefoxOptions.addArguments("--ignore-certificate-errors");
-                firefoxOptions.addArguments("--disable-gpu");
-                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
-                break;
-            case "opera":
-                operaOptions.addArguments("--disable-gpu");
-                capabilities.setCapability(OperaOptions.CAPABILITY, operaOptions);
-                break;
-        }*/
 
         if (runTest=="remote") {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
+          //  Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
             Configuration.remote = Project.webConfig.remoteUrl();
         }
+
         Configuration.browserCapabilities = capabilities;
 
 
